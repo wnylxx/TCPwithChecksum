@@ -1,7 +1,7 @@
 const net = require('net'); 
 
 let panTilt = { height: 0, position: 0 }; //팬틸트 초기화
-let zoomLevel = 0.5; // 줌 초기화
+let zoomLevel = 0; // 줌 초기화
 let volumeLevel = 10; // 볼륨 초기화
 
 // TCP 서버 연결
