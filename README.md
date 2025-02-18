@@ -1,51 +1,51 @@
-# TCP Communication Protocol with Checksum
+# 체크섬을 사용한 TCP 통신 프로토콜
 
-## Overview
+## 개요
 
-This project implements a custom TCP communication protocol designed to ensure data integrity and facilitate real-time communication between a client and server. The protocol structure consists of the following components:
+이 프로젝트는 데이터 무결성을 보장하고 클라이언트와 서버 간의 실시간 통신을 가능하게 하는 맞춤형 TCP 통신 프로토콜을 구현한 것입니다. 프로토콜 구조는 다음과 같은 구성 요소로 이루어져 있습니다:
 
-- **Length**: The total length of the packet (required)
-- **Checksum**: A checksum for data integrity verification (required)
-- **CommandCode**: A code that identifies the command to be executed (required)
-- **Data**: The data associated with the command (required)
-- **EndByte**: A byte that marks the end of the packet (optional)
+- **Length**: 패킷의 총 길이 (필수)
+- **Checksum**: 데이터 무결성 검증을 위한 체크섬 (필수)
+- **CommandCode**: 수행할 명령을 구분하는 코드 (필수)
+- **Data**: 명령에 필요한 데이터 (필수)
+- **EndByte**: 패킷의 끝을 나타내는 바이트 (선택적)
 
-## Architecture
+## 아키텍처
 
-### Server-Side Implementation
+### 서버 측 구현
 
-The server is responsible for handling commands and data received from the client, performing necessary actions, and sending responses back to the client. 
+서버는 클라이언트로부터 받은 명령과 데이터를 처리하고, 필요한 작업을 수행한 후 클라이언트에게 응답을 보내는 역할을 합니다.
 
-The server should:
-1. Accept incoming TCP connections.
-2. Parse the received packet according to the defined structure: `Length + Checksum + CommandCode + Data + EndByte`.
-3. Execute commands based on the `CommandCode` and modify data as needed.
-4. Send the updated values back to the client, ensuring the server holds the actual data and is the authority over it.
+서버는 다음과 같은 작업을 수행해야 합니다:
+1. 들어오는 TCP 연결을 수락합니다.
+2. 수신된 패킷을 정의된 구조(`Length + Checksum + CommandCode + Data + EndByte`)에 맞게 파싱합니다.
+3. `CommandCode`를 기반으로 명령을 수행하고 데이터를 수정합니다.
+4. 수정된 값을 클라이언트에게 전송합니다. 서버는 실제 데이터를 보유하고 있어야 하며, 데이터에 대한 권한을 가져야 합니다.
 
-### Client-Side Implementation
+### 클라이언트 측 구현
 
-The client is responsible for sending commands and receiving responses from the server. It will be developed using C# with a WinForms interface to allow for easy drag-and-drop component creation from the toolbox.
+클라이언트는 서버에게 명령을 보내고 서버로부터 응답을 받는 역할을 합니다. 클라이언트는 C#과 WinForms 인터페이스를 사용하여 개발되며, 도구상자에서 드래그 앤 드롭 방식으로 구성 요소를 쉽게 추가할 수 있습니다.
 
-- The client will send packets to the server, where the server will update values and send back updated data.
-- The client will display updated values and status after receiving a response from the server.
+- 클라이언트는 서버에 패킷을 전송하고, 서버는 값을 수정하여 클라이언트에게 응답을 보냅니다.
+- 클라이언트는 서버로부터 응답을 받은 후, 수정된 값과 상태를 표시합니다.
 
-## Issues to Address
+## 해결해야 할 문제
 
-1. **Server Data Handling**: Currently, the client holds the values and sends commands to the server. However, the server needs to maintain the actual data and send updated values back to the client, ensuring the server acts as the authority for all data.
+1. **서버 데이터 처리**: 현재 클라이언트가 값을 보유하고 명령을 서버에 보냅니다. 하지만 서버는 실제 데이터를 보유하고 이를 수정한 후, 수정된 값을 클라이언트에게 보내야 합니다. 서버가 데이터의 권한을 가져야 합니다.
    
-2. **Packet Sending**: The server currently does not send the updated values back to the client. This needs to be implemented to ensure two-way communication, where the server responds with the updated state or data.
+2. **패킷 전송**: 현재 서버는 클라이언트에게 수정된 값을 보내고 있지 않습니다. 서버가 값을 수정한 후, 이를 클라이언트에게 전송하는 기능을 구현해야 합니다.
 
-## Next Steps
+## 다음 단계
 
-1. **Server-Side Development**:
-   - Implement the functionality to receive and parse the packets from the client.
-   - Modify server logic to hold and update data as required.
-   - Ensure that the server sends updated data back to the client.
+1. **서버 측 개발**:
+   - 클라이언트로부터 패킷을 수신하고 파싱하는 기능 구현
+   - 서버에서 데이터를 보유하고 수정하는 로직 구현
+   - 수정된 데이터를 클라이언트에게 응답으로 전송하는 기능 구현
 
-2. **Client-Side Development**:
-   - Create the WinForms interface to interact with the user.
-   - Set up TCP client communication to send commands to the server and display server responses.
+2. **클라이언트 측 개발**:
+   - 사용자와 상호작용할 수 있는 WinForms 인터페이스 구현
+   - 서버와의 TCP 통신 설정 및 명령 전송, 응답 수신 후 값 표시
 
-## Conclusion
+## 결론
 
-This project will implement a robust, custom TCP communication protocol with a focus on data integrity using checksums and providing a simple client-server communication mechanism.
+이 프로젝트는 체크섬을 사용한 데이터 무결성 보장을 기반으로 한 강력한 TCP 통신 프로토콜을 구현하고, 간단한 클라이언트-서버 통신 메커니즘을 제공합니다.
