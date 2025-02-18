@@ -93,6 +93,7 @@
             this.btnUp.TabIndex = 3;
             this.btnUp.Text = "↑";
             this.btnUp.UseVisualStyleBackColor = true;
+            this.btnUp.Click += new System.EventHandler(this.btnUp_Click);
             // 
             // btnLeft
             // 
@@ -102,6 +103,7 @@
             this.btnLeft.TabIndex = 4;
             this.btnLeft.Text = "←";
             this.btnLeft.UseVisualStyleBackColor = true;
+            this.btnLeft.Click += new System.EventHandler(this.btnLeft_Click);
             // 
             // btnDown
             // 
@@ -111,6 +113,7 @@
             this.btnDown.TabIndex = 5;
             this.btnDown.Text = "↓";
             this.btnDown.UseVisualStyleBackColor = true;
+            this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
             // btnRight
             // 
@@ -120,6 +123,7 @@
             this.btnRight.TabIndex = 6;
             this.btnRight.Text = "→";
             this.btnRight.UseVisualStyleBackColor = true;
+            this.btnRight.Click += new System.EventHandler(this.btnRight_Click);
             // 
             // btnZoomIn
             // 
@@ -130,6 +134,7 @@
             this.btnZoomIn.TabIndex = 7;
             this.btnZoomIn.Text = "+ Zoom";
             this.btnZoomIn.UseVisualStyleBackColor = true;
+            this.btnZoomIn.Click += new System.EventHandler(this.btnZoomIn_Click);
             // 
             // btnZoomOut
             // 
@@ -139,6 +144,7 @@
             this.btnZoomOut.TabIndex = 8;
             this.btnZoomOut.Text = "- Zoom";
             this.btnZoomOut.UseVisualStyleBackColor = true;
+            this.btnZoomOut.Click += new System.EventHandler(this.btnZoomOut_Click);
             // 
             // btnVolumeUp
             // 
@@ -148,6 +154,7 @@
             this.btnVolumeUp.TabIndex = 9;
             this.btnVolumeUp.Text = "+ Volume";
             this.btnVolumeUp.UseVisualStyleBackColor = true;
+            this.btnVolumeUp.Click += new System.EventHandler(this.btnVolumeUp_Click);
             // 
             // btnVolumeDown
             // 
@@ -157,6 +164,7 @@
             this.btnVolumeDown.TabIndex = 10;
             this.btnVolumeDown.Text = "- Volume";
             this.btnVolumeDown.UseVisualStyleBackColor = true;
+            this.btnVolumeDown.Click += new System.EventHandler(this.btnVolumeDown_Click);
             // 
             // lblConnectionStatus
             // 
@@ -211,6 +219,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+
 
         }
 
